@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tours &amp; Packages — Wanderlust Journeys</title>
+  <meta name="description" content="Choose from our curated tour packages: honeymoon escapes, adventure expeditions, family holidays, and solo journeys." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .tours-hero { background-image: url('https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1920&q=80'); }
+
+    .table-section { padding: var(--section-py) 1.5rem; background: var(--cream-light); }
+    .table-section .section-title,
+    .table-section .section-eyebrow,
+    .table-section .section-desc  { text-align: center; }
+    .table-section .section-eyebrow { display: block; }
+
+    .pricing-table tbody tr.popular-row { background: var(--gold-pale) !important; }
+    .pricing-table tbody tr.popular-row td:first-child { color: var(--navy); }
+
+    .cta-band { background: var(--navy); padding: 4rem 1.5rem; text-align: center; color: var(--white); }
+    .cta-band h2 { margin-bottom: .75rem; }
+    .cta-band p  { color: rgba(255,255,255,.7); max-width: 500px; margin: 0 auto 2rem; }
+    .cta-band-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Per-night pricing ── */
+    .tour-price-night {
+      font-family: var(--font-nav);
+      font-size: .7rem;
+      color: var(--light);
+      margin-top: .15rem;
+      letter-spacing: .02em;
+    }
+    /* Save badge overlay on card image */
+    .save-badge {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: var(--error);
+      color: #fff;
+      font-family: var(--font-nav);
+      font-size: .62rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: .25rem .65rem;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+<header class="header">
+  <div class="header-inner">
+    <a href="/index.html" class="logo">
+      <div>
+        <div class="logo-text">Wanderlust<span>.</span></div>
+        <div class="logo-tagline">Luxury Travel Experiences</div>
+      </div>
+    </a>
+    <label for="menu-toggle" class="burger-label" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/index.html">Home</a>
+      <a href="/destinations.html">Destinations</a>
+      <a href="/tours.html" class="active">Tours</a>
+      <a href="/about.html">About</a>
+      <a href="/signup.html">Sign Up</a>
+      <a href="/contact.html" class="btn btn-primary">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════ PAGE HERO ═══════════════════════════ -->
+<div class="page-hero tours-hero">
+  <div class="page-hero-content">
+    <h1>Tours &amp; Packages</h1>
+    <p>Curated journeys designed for every kind of explorer</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ TOUR CARDS ═══════════════════════════ -->
+<section class="section section-alt">
+  <div class="container text-center" style="margin-bottom:3rem;">
+    <span class="section-eyebrow">Find Your Journey</span>
+    <h2 class="section-title">Our Tour Collection</h2>
+    <p class="section-desc">Each package is meticulously crafted with premium accommodations, expert guides, and hand-selected experiences.</p>
+  </div>
+
+  <div class="tours-grid container">
+
+    <!-- Tour 1 — Europe Grand Tour -->
+    <div class="tour-card">
+      <div class="tour-card-img">
+        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80" alt="Europe Grand Tour" loading="lazy" />
+        <span class="tour-badge">Most Popular</span>
+        <span class="save-badge">Save 15%</span>
+      </div>
+      <div class="tour-body">
+        <div class="tour-duration">&#128336; 18 Nights · 5 Countries</div>
+        <h3>Europe Grand Tour</h3>
+        <p>Paris, Rome, Barcelona, Vienna &amp; Prague — the quintessential European journey through art, history, and cuisine.</p>
+        <div class="tour-includes">
+          <span class="incl-tag">✈ Flights</span>
+          <span class="incl-tag">🏨 Hotels</span>
+          <span class="incl-tag">🚂 Rail Pass</span>
+          <span class="incl-tag">🍽 Breakfasts</span>
+        </div>
+      </div>
+      <div class="tour-footer">
+        <div>
+          <div class="tour-price-from">From per person</div>
+          <div class="tour-price-amt"><sup>$</sup>3,499</div>
+          <div class="tour-price-night">≈ $194 / night · ~~$4,117 before discount</div>
+        </div>
+        <a href="/contact.html" class="btn btn-primary btn-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Tour 2 — Maldives -->
+    <div class="tour-card">
+      <div class="tour-card-img">
+        <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80" alt="Maldives Escape" loading="lazy" />
+        <span class="tour-badge" style="background:var(--gold);color:var(--navy);">Honeymoon</span>
+      </div>
+      <div class="tour-body">
+        <div class="tour-duration">&#128336; 7 Nights · Maldives</div>
+        <h3>Maldives Island Escape</h3>
+        <p>Overwater bungalow, private snorkelling reef, sunset dinner on the beach, and couples' spa — pure bliss.</p>
+        <div class="tour-includes">
+          <span class="incl-tag">✈ Flights</span>
+          <span class="incl-tag">🛖 Overwater Villa</span>
+          <span class="incl-tag">🍽 Full Board</span>
+          <span class="incl-tag">🤿 Activities</span>
+        </div>
+      </div>
+      <div class="tour-footer">
+        <div>
+          <div class="tour-price-from">From per person</div>
+          <div class="tour-price-amt"><sup>$</sup>4,799</div>
+          <div class="tour-price-night">≈ $686 / night · Overwater villa included</div>
+        </div>
+        <a href="/contact.html" class="btn btn-primary btn-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Tour 3 — Japan -->
+    <div class="tour-card">
+      <div class="tour-card-img">
+        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80" alt="Japan Discovery" loading="lazy" />
+        <span class="tour-badge tour-badge-new">New 2026</span>
+      </div>
+      <div class="tour-body">
+        <div class="tour-duration">&#128336; 12 Nights · Japan</div>
+        <h3>Japan Discovery</h3>
+        <p>Tokyo's urban pulse, Kyoto's serene temples, Hiroshima's history, and Osaka's electrifying street food scene.</p>
+        <div class="tour-includes">
+          <span class="incl-tag">✈ Flights</span>
+          <span class="incl-tag">🏨 Ryokan &amp; Hotel</span>
+          <span class="incl-tag">🚄 Shinkansen</span>
+          <span class="incl-tag">🍱 Meals</span>
+        </div>
+      </div>
+      <div class="tour-footer">
+        <div>
+          <div class="tour-price-from">From per person</div>
+          <div class="tour-price-amt"><sup>$</sup>3,899</div>
+          <div class="tour-price-night">≈ $325 / night · Shinkansen pass included</div>
+        </div>
+        <a href="/contact.html" class="btn btn-primary btn-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Tour 4 — Peru -->
+    <div class="tour-card">
+      <div class="tour-card-img">
+        <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&q=80" alt="Inca Trail Peru" loading="lazy" />
+        <span class="tour-badge" style="background:#1a2f45;">Adventure</span>
+      </div>
+      <div class="tour-body">
+        <div class="tour-duration">&#128336; 9 Nights · Peru</div>
+        <h3>Inca Trail Expedition</h3>
+        <p>Trek the legendary Inca Trail through cloud forest and mountain passes to the iconic Sun Gate above Machu Picchu.</p>
+        <div class="tour-includes">
+          <span class="incl-tag">✈ Flights</span>
+          <span class="incl-tag">⛺ Camping &amp; Lodge</span>
+          <span class="incl-tag">🏔 All Meals</span>
+          <span class="incl-tag">🎒 Porter</span>
+        </div>
+      </div>
+      <div class="tour-footer">
+        <div>
+          <div class="tour-price-from">From per person</div>
+          <div class="tour-price-amt"><sup>$</sup>2,999</div>
+          <div class="tour-price-night">≈ $333 / night · All meals &amp; porter included</div>
+        </div>
+        <a href="/contact.html" class="btn btn-primary btn-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Tour 5 — Morocco -->
+    <div class="tour-card">
+      <div class="tour-card-img">
+        <img src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800&q=80" alt="Morocco Sojourn" loading="lazy" />
+        <span class="save-badge">Best Value</span>
+      </div>
+      <div class="tour-body">
+        <div class="tour-duration">&#128336; 10 Nights · Morocco</div>
+        <h3>Morocco Sojourn</h3>
+        <p>Marrakech's vibrant souks, the blue city of Chefchaouen, Sahara desert camp, and the Atlantic coast of Essaouira.</p>
+        <div class="tour-includes">
+          <span class="incl-tag">✈ Flights</span>
+          <span class="incl-tag">🏰 Riad Stays</span>
+          <span class="incl-tag">🐪 Desert Camp</span>
+          <span class="incl-tag">🍽 Breakfasts</span>
+        </div>
+      </div>
+      <div class="tour-footer">
+        <div>
+          <div class="tour-price-from">From per person</div>
+          <div class="tour-price-amt"><sup>$</sup>2,349</div>
+          <div class="tour-price-night">≈ $235 / night · Riad &amp; desert camp</div>
+        </div>
+        <a href="/contact.html" class="btn btn-primary btn-sm">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Tour 6 — Iceland -->
+    <div class="tour-card">
+      <div class="tour-card-img">
+        <img src="https://images.unsplash.com/photo-1474690870753-1b92efa1f2d8?w=800&q=80" alt="Iceland Northern Lights" loading="lazy" />
+        <span class="tour-badge" style="background:#6A1B9A;color:#fff;">Winter Special</span>
+      </div>
+      <div class="tour-body">
+        <div class="tour-duration">&#128336; 7 Nights · Iceland</div>
+        <h3>Iceland Northern Lights</h3>
+        <p>Hunt the Aurora Borealis, bathe in geothermal pools under the stars, and explore otherworldly volcanic landscapes.</p>
+        <div class="tour-includes">
+          <span class="incl-tag">✈ Flights</span>
+          <span class="incl-tag">🏠 Cabins</span>
+          <span class="incl-tag">🚐 4WD Tours</span>
+          <span class="incl-tag">♨ Blue Lagoon</span>
+        </div>
+      </div>
+      <div class="tour-footer">
+        <div>
+          <div class="tour-price-from">From per person</div>
+          <div class="tour-price-amt"><sup>$</sup>2,799</div>
+          <div class="tour-price-night">≈ $400 / night · Blue Lagoon pass included</div>
+        </div>
+        <a href="/contact.html" class="btn btn-primary btn-sm">Book Now</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════ PRICING COMPARISON TABLE ═══════════════════════════ -->
+<section class="table-section">
+  <div class="container">
+    <span class="section-eyebrow">Compare Plans</span>
+    <h2 class="section-title">Package Inclusions &amp; Pricing</h2>
+    <p class="section-desc">Not sure which package suits you? Compare what's included across our three main tiers — all prices per person.</p>
+  </div>
+
+  <div class="table-wrapper container" style="margin-top:2rem;">
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Feature / Inclusion</th>
+          <th>Essential</th>
+          <th class="th-feat">&#11088; Premium</th>
+          <th>Luxury</th>
+          <th>Nightly Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Accommodation</td>
+          <td>3&#9733; Hotels</td>
+          <td class="td-feat">4&#9733; Boutique</td>
+          <td>5&#9733; Resorts</td>
+          <td>Varies</td>
+        </tr>
+        <tr>
+          <td>International Flights</td>
+          <td><span class="ico-yes">&#10003;</span> Economy</td>
+          <td class="td-feat"><span class="ico-yes">&#10003;</span> Economy+</td>
+          <td><span class="ico-yes">&#10003;</span> Business</td>
+          <td>Included</td>
+        </tr>
+        <tr>
+          <td>Private Airport Transfers</td>
+          <td><span class="ico-no">&#10005;</span></td>
+          <td class="td-feat"><span class="ico-yes">&#10003;</span></td>
+          <td><span class="ico-yes">&#10003;</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Meals</td>
+          <td>Breakfast only</td>
+          <td class="td-feat">Half Board</td>
+          <td>Full Board</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Guided Excursions</td>
+          <td>Group (shared)</td>
+          <td class="td-feat">Small Group (&lt;10)</td>
+          <td>Private only</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>24/7 Concierge Access</td>
+          <td><span class="ico-no">&#10005;</span></td>
+          <td class="td-feat"><span class="ico-yes">&#10003;</span></td>
+          <td><span class="ico-yes">&#10003;</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Travel Insurance</td>
+          <td><span class="ico-no">&#10005;</span></td>
+          <td class="td-feat"><span class="ico-yes">&#10003;</span> Basic</td>
+          <td><span class="ico-yes">&#10003;</span> Comprehensive</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Spa &amp; Wellness Credits</td>
+          <td><span class="ico-no">&#10005;</span></td>
+          <td class="td-feat"><span class="ico-no">&#10005;</span></td>
+          <td><span class="ico-yes">&#10003;</span> $200 credit</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Free Date Changes</td>
+          <td><span class="ico-no">&#10005;</span></td>
+          <td class="td-feat"><span class="ico-yes">&#10003;</span> 1 change</td>
+          <td><span class="ico-yes">&#10003;</span> Unlimited</td>
+          <td>—</td>
+        </tr>
+        <tr class="popular-row">
+          <td>Starting From (7 nights)</td>
+          <td>$999 / person</td>
+          <td class="td-feat">$1,999 / person</td>
+          <td>$3,999 / person</td>
+          <td><a href="/contact.html" class="btn btn-primary btn-sm">Book</a></td>
+        </tr>
+        <tr>
+          <td>Per Night (from)</td>
+          <td>~$143 / night</td>
+          <td class="td-feat"><strong>~$286 / night</strong></td>
+          <td>~$571 / night</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="text-align:center;margin-top:1.5rem;font-size:.8rem;color:var(--light);">
+    Prices shown are indicative starting rates. Actual pricing varies by destination, travel dates, and group size.
+    <a href="/contact.html" style="color:var(--gold);text-decoration:underline;">Contact us</a> for a personalised quote.
+  </p>
+</section>
+
+<!-- ═══════════════════════════ CTA BAND ═══════════════════════════ -->
+<section class="cta-band">
+  <div class="container">
+    <span class="section-eyebrow" style="display:block;text-align:center;margin-bottom:.5rem;">Can't Find What You're Looking For?</span>
+    <h2>Let Us Build Your Dream Trip</h2>
+    <p>Every journey we create is unique. Tell us your dream and our travel experts will craft a completely bespoke itinerary just for you.</p>
+    <div class="cta-band-btns">
+      <a href="/contact.html" class="btn btn-primary">Request a Custom Quote</a>
+      <a href="/about.html"   class="btn btn-outline">Meet Our Experts</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer class="footer">
+  <div class="footer-grid container">
+    <div class="footer-brand">
+      <div class="logo-text" style="margin-bottom:.3rem;">Wanderlust<span>.</span></div>
+      <p>We craft extraordinary journeys for curious souls. From intimate escapes to grand expeditions — your perfect trip starts here.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram">&#128247;</a>
+        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+        <a href="#" class="social-btn" aria-label="Twitter">&#120143;</a>
+        <a href="#" class="social-btn" aria-label="Pinterest">&#9677;</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="/destinations.html">All Destinations</a></li>
+        <li><a href="/tours.html">Tour Packages</a></li>
+        <li><a href="/tours.html">Honeymoon</a></li>
+        <li><a href="/tours.html">Adventure Tours</a></li>
+        <li><a href="/tours.html">Family Holidays</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/about.html">Our Team</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Account</h5>
+      <ul>
+        <li><a href="/signup.html">Create Account</a></li>
+        <li><a href="#">Sign In</a></li>
+        <li><a href="#">My Bookings</a></li>
+        <li><a href="#">My Wishlist</a></li>
+        <li><a href="/contact.html">Help Centre</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>&copy; 2026 Wanderlust Journeys. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Cookie Settings</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

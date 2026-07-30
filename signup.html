@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up — Wanderlust Journeys</title>
+  <meta name="description" content="Create your free Wanderlust Journeys account to save favourite destinations, track bookings, and unlock exclusive member offers." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    /* ── Sign-Up page layout ── */
+    .signup-wrap {
+      min-height: calc(100vh - 74px);
+      margin-top: 74px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* Left: benefits panel */
+    .signup-panel {
+      background: linear-gradient(160deg, var(--navy) 0%, #1a3a55 100%);
+      padding: 5rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .signup-panel::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(201,168,76,.08);
+    }
+    .signup-panel::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(201,168,76,.06);
+    }
+    .signup-panel-inner { position: relative; z-index: 1; }
+
+    .signup-panel .section-eyebrow { margin-bottom: .5rem; }
+    .signup-panel h1 {
+      color: var(--white);
+      font-size: clamp(1.8rem,3vw,2.6rem);
+      margin-bottom: 1.25rem;
+    }
+    .signup-panel > .signup-panel-inner > p {
+      color: rgba(255,255,255,.7);
+      font-size: .95rem;
+      line-height: 1.75;
+      max-width: 380px;
+      margin-bottom: 2.5rem;
+    }
+
+    .benefit-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .benefit-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      color: rgba(255,255,255,.85);
+    }
+    .benefit-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: rgba(201,168,76,.15);
+      border: 1px solid rgba(201,168,76,.3);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .benefit-text h4 { font-family: var(--font-nav); font-size: .82rem; font-weight: 700; color: var(--white); margin-bottom: .2rem; }
+    .benefit-text p  { font-size: .8rem; color: rgba(255,255,255,.6); line-height: 1.5; }
+
+    .signup-login-link {
+      margin-top: 2.5rem;
+      font-size: .85rem;
+      color: rgba(255,255,255,.55);
+    }
+    .signup-login-link a { color: var(--gold-light); text-decoration: underline; }
+
+    /* Right: form panel */
+    .signup-form-wrap {
+      background: var(--cream-light);
+      padding: 4rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .signup-form-wrap h2 {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      color: var(--navy);
+      margin-bottom: .4rem;
+    }
+    .signup-form-wrap > p {
+      font-size: .88rem;
+      color: var(--mid);
+      margin-bottom: 2rem;
+    }
+
+    /* Password strength hint */
+    .pw-hint {
+      font-size: .74rem;
+      color: var(--light);
+      margin-top: .3rem;
+    }
+
+    /* Divider */
+    .form-divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .form-divider::before,
+    .form-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #ddd8cc;
+    }
+    .form-divider span { font-size: .75rem; color: var(--light); white-space: nowrap; }
+
+    /* Social signup buttons */
+    .social-signup { display: flex; gap: .75rem; }
+    .social-signup-btn {
+      flex: 1;
+      padding: .75rem 1rem;
+      border: 1.5px solid #ddd8cc;
+      border-radius: var(--radius-md);
+      background: var(--white);
+      font-family: var(--font-nav);
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--dark);
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+    }
+    .social-signup-btn:hover { border-color: var(--gold); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+
+    @media (max-width: 900px) {
+      .signup-wrap { grid-template-columns: 1fr; }
+      .signup-panel { padding: 3rem 2rem; }
+      .signup-form-wrap { padding: 3rem 2rem; }
+    }
+    @media (max-width: 480px) {
+      .signup-panel { padding: 2.5rem 1.25rem; }
+      .signup-form-wrap { padding: 2.5rem 1.25rem; }
+      .social-signup { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="/index.html" class="logo">
+      <div>
+        <div class="logo-text">Wanderlust<span>.</span></div>
+        <div class="logo-tagline">Luxury Travel Experiences</div>
+      </div>
+    </a>
+    <label for="menu-toggle" class="burger-label" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/index.html">Home</a>
+      <a href="/destinations.html">Destinations</a>
+      <a href="/tours.html">Tours</a>
+      <a href="/about.html">About</a>
+      <a href="/signup.html" class="active">Sign Up</a>
+      <a href="/contact.html" class="btn btn-primary">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- SIGN-UP LAYOUT -->
+<div class="signup-wrap">
+
+  <!-- ── Left panel: benefits ── -->
+  <div class="signup-panel">
+    <div class="signup-panel-inner">
+      <span class="section-eyebrow">Free Membership</span>
+      <h1>Join the Wanderlust Community</h1>
+      <p>Create your free account and unlock a world of exclusive travel benefits, saved itineraries, and early-access offers.</p>
+
+      <div class="benefit-list">
+        <div class="benefit-item">
+          <div class="benefit-icon">&#127919;</div>
+          <div class="benefit-text">
+            <h4>Exclusive Member Rates</h4>
+            <p>Access member-only pricing up to 20% below standard rates.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">&#128204;</div>
+          <div class="benefit-text">
+            <h4>Save Your Wishlist</h4>
+            <p>Bookmark destinations and tours to plan your future adventures.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">&#128336;</div>
+          <div class="benefit-text">
+            <h4>Booking History</h4>
+            <p>Track all past and upcoming journeys from one dashboard.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">&#9993;</div>
+          <div class="benefit-text">
+            <h4>Priority Support</h4>
+            <p>Members get direct access to our concierge team with faster response times.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="signup-login-link">
+        Already a member? <a href="/contact.html">Sign in here</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ── Right panel: form ── -->
+  <div class="signup-form-wrap">
+    <h2>Create Your Account</h2>
+    <p>Join thousands of travellers who plan their journeys with Wanderlust.</p>
+
+    <!-- Social sign-up shortcuts -->
+    <div class="social-signup">
+      <button type="button" class="social-signup-btn">
+        <span>G</span> Continue with Google
+      </button>
+      <button type="button" class="social-signup-btn">
+        <span>f</span> Continue with Facebook
+      </button>
+    </div>
+
+    <div class="form-divider"><span>or register with email</span></div>
+
+
+    <form action="#" method="get">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="su-fname">First Name <span class="req">*</span></label>
+          <input
+            type="text" id="su-fname" name="first_name"
+            class="form-control" placeholder="Jane"
+            required minlength="2"
+            pattern="[A-Za-z\s\-]{2,}"
+          />
+          <span class="v-msg">Min 2 letters, letters only</span>
+        </div>
+        <div class="form-group">
+          <label for="su-lname">Last Name <span class="req">*</span></label>
+          <input
+            type="text" id="su-lname" name="last_name"
+            class="form-control" placeholder="Smith"
+            required minlength="2"
+            pattern="[A-Za-z\s\-]{2,}"
+          />
+          <span class="v-msg">Min 2 letters, letters only</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="su-email">Email Address <span class="req">*</span></label>
+        <input
+          type="email" id="su-email" name="email"
+          class="form-control" placeholder="jane@example.com"
+          required
+        />
+        <span class="v-msg">Please enter a valid email address</span>
+      </div>
+
+      <div class="form-group">
+        <label for="su-phone">Phone Number</label>
+        <input
+          type="tel" id="su-phone" name="phone"
+          class="form-control" placeholder="+44 7700 900000"
+          pattern="[\+\d\s\(\)\-]{7,20}"
+        />
+        <span class="v-msg">Enter a valid phone number (7–20 digits)</span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="su-pw">Password <span class="req">*</span></label>
+          <input
+            type="password" id="su-pw" name="password"
+            class="form-control" placeholder="Min 8 characters"
+            required minlength="8"
+            pattern=".{8,}"
+          />
+          <span class="v-msg">Password must be at least 8 characters</span>
+          <p class="pw-hint">Use a mix of letters, numbers, and symbols for a stronger password.</p>
+        </div>
+        <div class="form-group">
+          <label for="su-pw2">Confirm Password <span class="req">*</span></label>
+          <input
+            type="password" id="su-pw2" name="password2"
+            class="form-control" placeholder="Repeat password"
+            required minlength="8"
+            pattern=".{8,}"
+          />
+          <span class="v-msg">Password must be at least 8 characters</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="su-country">Country of Residence</label>
+        <select id="su-country" name="country" class="form-control">
+          <option value="" disabled selected>Select your country…</option>
+          <option value="GB">United Kingdom</option>
+          <option value="US">United States</option>
+          <option value="AU">Australia</option>
+          <option value="CA">Canada</option>
+          <option value="DE">Germany</option>
+          <option value="FR">France</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Travel Interests</label>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.35rem;">
+          <label style="display:flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:400;text-transform:none;letter-spacing:0;color:var(--mid);cursor:pointer;">
+            <input type="checkbox" name="interest" value="adventure" style="accent-color:var(--gold);width:auto;"> Adventure
+          </label>
+          <label style="display:flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:400;text-transform:none;letter-spacing:0;color:var(--mid);cursor:pointer;">
+            <input type="checkbox" name="interest" value="luxury" style="accent-color:var(--gold);width:auto;"> Luxury
+          </label>
+          <label style="display:flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:400;text-transform:none;letter-spacing:0;color:var(--mid);cursor:pointer;">
+            <input type="checkbox" name="interest" value="culture" style="accent-color:var(--gold);width:auto;"> Culture
+          </label>
+          <label style="display:flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:400;text-transform:none;letter-spacing:0;color:var(--mid);cursor:pointer;">
+            <input type="checkbox" name="interest" value="beach" style="accent-color:var(--gold);width:auto;"> Beach
+          </label>
+          <label style="display:flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:400;text-transform:none;letter-spacing:0;color:var(--mid);cursor:pointer;">
+            <input type="checkbox" name="interest" value="family" style="accent-color:var(--gold);width:auto;"> Family
+          </label>
+          <label style="display:flex;align-items:center;gap:.4rem;font-size:.82rem;font-weight:400;text-transform:none;letter-spacing:0;color:var(--mid);cursor:pointer;">
+            <input type="checkbox" name="interest" value="honeymoon" style="accent-color:var(--gold);width:auto;"> Honeymoon
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group" style="display:flex;align-items:flex-start;gap:.75rem;margin-top:.5rem;">
+        <input
+          type="checkbox" id="su-terms" name="terms" required
+          style="margin-top:.25rem;width:auto;flex-shrink:0;accent-color:var(--gold);"
+        />
+        <label for="su-terms" style="text-transform:none;letter-spacing:0;font-weight:400;font-size:.83rem;color:var(--mid);cursor:pointer;">
+          I agree to the <a href="#" style="color:var(--gold);text-decoration:underline;">Terms &amp; Conditions</a>
+          and <a href="#" style="color:var(--gold);text-decoration:underline;">Privacy Policy</a>. <span class="req">*</span>
+        </label>
+      </div>
+
+      <div class="form-group" style="display:flex;align-items:center;gap:.75rem;">
+        <input
+          type="checkbox" id="su-newsletter" name="newsletter"
+          style="width:auto;flex-shrink:0;accent-color:var(--gold);"
+        />
+        <label for="su-newsletter" style="text-transform:none;letter-spacing:0;font-weight:400;font-size:.83rem;color:var(--mid);cursor:pointer;">
+          Send me exclusive offers and travel inspiration (optional)
+        </label>
+      </div>
+
+      <div class="form-footer" style="margin-top:1.75rem;">
+        <p class="form-note">&#128274; Your data is encrypted and never shared.</p>
+        <button type="submit" class="btn btn-primary">Create Account &#10148;</button>
+      </div>
+
+    </form>
+  </div>
+
+</div><!-- /.signup-wrap -->
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer class="footer">
+  <div class="footer-grid container">
+    <div class="footer-brand">
+      <div class="logo-text" style="margin-bottom:.3rem;">Wanderlust<span>.</span></div>
+      <p>We craft extraordinary journeys for curious souls. From intimate escapes to grand expeditions — your perfect trip starts here.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram">&#128247;</a>
+        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+        <a href="#" class="social-btn" aria-label="Twitter">&#120143;</a>
+        <a href="#" class="social-btn" aria-label="Pinterest">&#9677;</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="/destinations.html">All Destinations</a></li>
+        <li><a href="/tours.html">Tour Packages</a></li>
+        <li><a href="/tours.html">Honeymoon</a></li>
+        <li><a href="/tours.html">Adventure Tours</a></li>
+        <li><a href="/tours.html">Family Holidays</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/about.html">Our Team</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Account</h5>
+      <ul>
+        <li><a href="/signup.html">Create Account</a></li>
+        <li><a href="#">Sign In</a></li>
+        <li><a href="#">My Bookings</a></li>
+        <li><a href="#">My Wishlist</a></li>
+        <li><a href="/contact.html">Help Centre</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>&copy; 2026 Wanderlust Journeys. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Cookie Settings</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

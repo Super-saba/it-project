@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destinations — Wanderlust Journeys</title>
+  <meta name="description" content="Explore our handpicked destinations across Europe, Asia, the Americas and beyond. Every destination tells a story." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    /* ── Destinations-page extras ── */
+    .filter-bar {
+      display: flex; gap: .75rem; flex-wrap: wrap;
+      max-width: var(--container); margin: 0 auto 2.5rem;
+      justify-content: center;
+    }
+    .filter-radio { display: none; }
+    .filter-label {
+      padding: .45rem 1.35rem;
+      border: 1.5px solid #ddd;
+      border-radius: 30px;
+      font-family: var(--font-nav);
+      font-size: .75rem; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--mid);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-label:hover { border-color: var(--gold); color: var(--navy); }
+    .filter-radio:checked + .filter-label {
+      background: var(--navy); border-color: var(--navy); color: var(--white);
+    }
+
+    /* Region badge on cards */
+    .region-badge {
+      display: inline-block;
+      padding: .22rem .65rem;
+      border-radius: 20px;
+      font-family: var(--font-nav);
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+    .badge-europe  { background: #E8F4FD; color: #1565C0; }
+    .badge-asia    { background: #FFF3E0; color: #E65100; }
+    .badge-america { background: #E8F5E9; color: #2E7D32; }
+    .badge-oceania { background: #F3E5F5; color: #6A1B9A; }
+
+    /* Inner-page sub-hero  */
+    .dest-hero {
+      background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1920&q=80');
+    }
+    /* Quick-search bar */
+    .search-bar-wrap {
+      background: var(--white);
+      padding: 1.5rem;
+      max-width: 700px;
+      margin: -1.75rem auto 0;
+      position: relative; z-index: 10;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      display: flex; gap: .75rem;
+    }
+    .search-bar-wrap input {
+      flex: 1; padding: .8rem 1rem;
+      border: 1.5px solid #ddd; border-radius: var(--radius-md);
+      font-family: var(--font-body); font-size: .9rem; color: var(--dark);
+      outline: none;
+    }
+    .search-bar-wrap input:focus { border-color: var(--gold); }
+    .search-bar-wrap button {
+      padding: .8rem 1.75rem;
+      background: var(--navy); color: var(--white);
+      border: none; border-radius: var(--radius-md);
+      font-family: var(--font-nav); font-size: .78rem;
+      font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      cursor: pointer; transition: var(--transition); white-space: nowrap;
+    }
+    .search-bar-wrap button:hover { background: var(--navy-mid); }
+  </style>
+</head>
+<body>
+
+<!-- ── BURGER CHECKBOX ── -->
+<input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+<header class="header">
+  <div class="header-inner">
+    <a href="/index.html" class="logo">
+      <div>
+        <div class="logo-text">Wanderlust<span>.</span></div>
+        <div class="logo-tagline">Luxury Travel Experiences</div>
+      </div>
+    </a>
+    <label for="menu-toggle" class="burger-label" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/index.html">Home</a>
+      <a href="/destinations.html" class="active">Destinations</a>
+      <a href="/tours.html">Tours</a>
+      <a href="/about.html">About</a>
+      <a href="/signup.html">Sign Up</a>
+      <a href="/contact.html" class="btn btn-primary">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════ PAGE HERO ═══════════════════════════ -->
+<div class="page-hero dest-hero">
+  <div class="page-hero-content">
+    <h1>Our Destinations</h1>
+    <p>From ancient wonders to tropical paradises — where will you go?</p>
+  </div>
+</div>
+
+<!-- ── Quick Search ── -->
+<div class="container">
+  <form class="search-bar-wrap" action="#" method="get">
+    <input type="search" name="q" placeholder="Search destinations, countries, regions…" />
+    <button type="submit">Search</button>
+  </form>
+</div>
+
+<!-- ═══════════════════════════ DESTINATIONS GRID ═══════════════════════════ -->
+<section class="section section-alt">
+  <div class="container text-center" style="margin-bottom:2rem;">
+    <span class="section-eyebrow">Explore the World</span>
+    <h2 class="section-title">All Destinations</h2>
+    <p class="section-desc">Browse our complete collection of handpicked destinations, each selected for its unique character and unforgettable experiences.</p>
+  </div>
+
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <input type="radio" id="f-all"    name="filter" class="filter-radio" checked>
+    <label for="f-all"    class="filter-label">All Regions</label>
+
+    <input type="radio" id="f-eu"     name="filter" class="filter-radio">
+    <label for="f-eu"     class="filter-label">Europe</label>
+
+    <input type="radio" id="f-asia"   name="filter" class="filter-radio">
+    <label for="f-asia"   class="filter-label">Asia</label>
+
+    <input type="radio" id="f-am"     name="filter" class="filter-radio">
+    <label for="f-am"     class="filter-label">Americas</label>
+
+    <input type="radio" id="f-oc"     name="filter" class="filter-radio">
+    <label for="f-oc"     class="filter-label">Oceania &amp; Africa</label>
+  </div>
+
+  <!-- 9 destination cards -->
+  <div class="dest-full-grid container">
+
+    <!-- 1 Paris -->
+    <div class="dest-full-card">
+      <div class="dest-full-img">
+        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80" alt="Paris, France" loading="lazy" />
+      </div>
+      <div class="dest-full-body">
+        <span class="region-badge badge-europe">Europe</span>
+        <h3>Paris, France</h3>
+        <p>The City of Light enchants with world-class art, haute cuisine, and iconic landmarks that define European elegance.</p>
+        <div class="dest-highlight">
+          <span class="dest-hl-item">&#127981; Louvre</span>
+          <span class="dest-hl-item">&#9968; Eiffel Tower</span>
+          <span class="dest-hl-item">&#127860; Fine Dining</span>
+        </div>
+        <div class="dest-full-footer">
+          <div class="dest-full-price">$1,299 <span>/ person</span></div>
+          <a href="/tours.html" class="btn btn-ghost btn-sm">See Tours</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 Santorini -->
+    <div class="dest-full-card">
+      <div class="dest-full-img">
+        <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80" alt="Santorini, Greece" loading="lazy" />
+      </div>
+      <div class="dest-full-body">
+        <span class="region-badge badge-europe">Europe</span>
+        <h3>Santorini, Greece</h3>
+        <p>Perched on volcanic cliffs, Santorini dazzles with cobalt-domed churches, infinite sea views, and legendary sunsets.</p>
+        <div class="dest-highlight">
+          <span class="dest-hl-item">&#127754; Caldera Views</span>
+          <span class="dest-hl-item">&#127870; Wine Tasting</span>
+        </div>
+        <div class="dest-full-footer">
+          <div class="dest-full-price">$2,199 <span>/ person</span></div>
+          <a href="/tours.html" class="btn btn-ghost btn-sm">See Tours</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Switzerland -->
+    <div class="dest-full-card">
+      <div class="dest-full-img">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Swiss Alps" loading="lazy" />
+      </div>
+      <div class="dest-full-body">
+        <span class="region-badge badge-europe">Europe</span>
+        <h3>Swiss Alps, Switzerland</h3>
+        <p>Majestic peaks, pristine glacier lakes, and charming alpine villages make Switzerland a year-round wonderland.</p>
+        <div class="dest-highlight">
+          <span class="dest-hl-item">&#9975; Skiing</span>
+          <span class="dest-hl-item">&#127956; Hiking</span>
+          <span class="dest-hl-item">&#128137; Chocolates</span>
+        </div>
+        <div class="dest-full-footer">
+          <div class="dest-full-price">$2,899 <span>/ person</span></div>
+          <a href="/tours.html" class="btn btn-ghost btn-sm">See Tours</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 Bali -->
+    <div class="dest-full-card">
+      <div class="dest-full-img">
+        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80" alt="Bali, Indonesia" loading="lazy" />
+      </div>
+      <div class="dest-full-body">
+        <span class="region-badge badge-asia">Asia</span>
+        <h3>Bali, Indonesia</h3>
+        <p>Terraced rice paddies, sacred temples, world-class surf, and a spiritual energy that restores the soul.</p>
+        <div class="dest-highlight">
+          <span class="dest-hl-item">&#127748; Rice Terraces</span>
+          <span class="dest-hl-item">&#127934; Surfing</span>
+          <span class="dest-hl-item">&#127749; Temples</span>
+        </div>
+        <div class="dest-full-footer">
+          <div class="dest-full-price">$1,899 <span>/ person</span></div>
+          <a href="/tours.html" class="btn btn-ghost btn-sm">See Tours</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 Tokyo -->
+    <div class="dest-full-card">
+      <div class="dest-full-img">
+        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80" alt="Tokyo, Japan" loading="lazy" />
+      </div>
+      <div class="dest-full-body">
+        <span class="region-badge badge-asia">Asia</span>
+        <h3>Tokyo, Japan</h3>
+        <p>Neon-lit skyscrapers stand beside thousand-year-old shrines — Tokyo is the world's most exhilarating urban adventure.</p>
+        <div class="dest-highlight">
+          <span class="dest-hl-item">&#129354; Ramen</span>
+          <span class="dest-hl-item">&#128999; Technology</span>
+          <span class="dest-hl-item">&#127800; Sakura</span>
+        </div>
+        <div class="dest-full-footer">
+          <div class="dest-full-price">$2,499 <span>/ person</span></div>
+          <a href="/tours.html" class="btn btn-ghost btn-sm">See Tours</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 Thailand -->
+    <div class="dest-full-card">
+      <div class="dest-full-img">
+        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80" alt="Thailand" loading="lazy" />
+      </div>
+      <div class="dest-full-body">
+        <span class="region-badge badge-asia">Asia</span>
+        <h3>Chiang Mai, Thailand</h3>
+        <p>Ancient walled city surrounded by misty mountains, elephant sanctuaries, and some of Southeast Asia's finest food.</p>
+        <div class="dest-highlight">
+          <span class="dest-hl-item">&#128024; Elephants</span>
+          <span class="dest-hl-item">&#9970; Temples</span>
+          <span class="dest-hl-item">&#127859; Street Food</span>
+        </div>
+        <div class="dest-full-footer">
+          <div class="dest-full-price">$1,599 <span>/ person</span></div>
+          <a href="/tours.html" class="btn btn-ghost btn-sm">See Tours</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 Peru -->
+    <div class="dest-full-card">
+      <div class="dest-full-img">
+        <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&q=80" alt="Machu Picchu, Peru" loading="lazy" />
+      </div>
+      <div class="dest-full-body">
+        <span class="region-badge badge-america">Americas</span>
+        <h3>Machu Picchu, Peru</h3>
+        <p>One of humanity's greatest achievements, hidden in the Andes clouds — a journey to the lost city of the Incas.</p>
+        <div class="dest-highlight">
+          <span class="dest-hl-item">&#127956; Inca Trail</span>
+          <span class="dest-hl-item">&#129432; Llamas</span>
+          <span class="dest-hl-item">&#9960; History</span>
+        </div>
+        <div class="dest-full-footer">
+          <div class="dest-full-price">$2,799 <span>/ person</span></div>
+          <a href="/tours.html" class="btn btn-ghost btn-sm">See Tours</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 Morocco -->
+    <div class="dest-full-card">
+      <div class="dest-full-img">
+        <img src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800&q=80" alt="Morocco" loading="lazy" />
+      </div>
+      <div class="dest-full-body">
+        <span class="region-badge badge-oceania">Africa</span>
+        <h3>Marrakech, Morocco</h3>
+        <p>A sensory explosion of spice markets, mosaic riads, and the vast golden silence of the Sahara beyond the city walls.</p>
+        <div class="dest-highlight">
+          <span class="dest-hl-item">&#127963; Medina</span>
+          <span class="dest-hl-item">&#127988; Sahara</span>
+          <span class="dest-hl-item">&#129527; Hammam</span>
+        </div>
+        <div class="dest-full-footer">
+          <div class="dest-full-price">$1,749 <span>/ person</span></div>
+          <a href="/tours.html" class="btn btn-ghost btn-sm">See Tours</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 Iceland -->
+    <div class="dest-full-card">
+      <div class="dest-full-img">
+        <img src="https://images.unsplash.com/photo-1474690870753-1b92efa1f2d8?w=800&q=80" alt="Iceland" loading="lazy" />
+      </div>
+      <div class="dest-full-body">
+        <span class="region-badge badge-europe">Europe</span>
+        <h3>Reykjavik, Iceland</h3>
+        <p>Northern Lights, geothermal pools, volcanic landscapes, and midnight sun — Iceland is unlike anywhere on Earth.</p>
+        <div class="dest-highlight">
+          <span class="dest-hl-item">&#127774; Northern Lights</span>
+          <span class="dest-hl-item">&#9832; Hot Springs</span>
+          <span class="dest-hl-item">&#127756; Glaciers</span>
+        </div>
+        <div class="dest-full-footer">
+          <div class="dest-full-price">$2,399 <span>/ person</span></div>
+          <a href="/tours.html" class="btn btn-ghost btn-sm">See Tours</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════ NEWSLETTER ═══════════════════════════ -->
+<section class="newsletter">
+  <div class="container">
+    <span class="section-eyebrow" style="display:block;text-align:center;margin-bottom:.4rem;">Stay Inspired</span>
+    <h2>Never Miss a New Destination</h2>
+    <p>Subscribe and be the first to know when we add new destinations and special early-bird rates.</p>
+    <form class="nl-form" action="#" method="get" novalidate>
+      <input type="email" name="email" placeholder="Your email address" required
+             pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer class="footer">
+  <div class="footer-grid container">
+    <div class="footer-brand">
+      <div class="logo-text" style="margin-bottom:.3rem;">Wanderlust<span>.</span></div>
+      <p>We craft extraordinary journeys for curious souls. From intimate escapes to grand expeditions — your perfect trip starts here.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram">&#128247;</a>
+        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+        <a href="#" class="social-btn" aria-label="Twitter">&#120143;</a>
+        <a href="#" class="social-btn" aria-label="Pinterest">&#9677;</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="/destinations.html">All Destinations</a></li>
+        <li><a href="/tours.html">Tour Packages</a></li>
+        <li><a href="/tours.html">Honeymoon</a></li>
+        <li><a href="/tours.html">Adventure Tours</a></li>
+        <li><a href="/tours.html">Family Holidays</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/about.html">Our Team</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Support</h5>
+      <ul>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Travel Insurance</a></li>
+        <li><a href="#">Visa Information</a></li>
+        <li><a href="#">Cancellation Policy</a></li>
+        <li><a href="/contact.html">Help Centre</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>&copy; 2026 Wanderlust Journeys. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Cookie Settings</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

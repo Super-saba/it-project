@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &amp; Book — Wanderlust Journeys</title>
+  <meta name="description" content="Ready to travel? Contact our experts and start planning your dream journey today." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .contact-hero { background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1920&q=80'); }
+
+    /* Map placeholder */
+    .map-section { padding: 0; height: 320px; overflow: hidden; position: relative; }
+    .map-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a55 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.6);
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: 1.1rem;
+      flex-direction: column;
+      gap: .75rem;
+    }
+    .map-placeholder .map-icon { font-size: 3rem; color: var(--gold); animation: float 3s ease infinite; }
+
+    /* Success state — visible only after :valid form submit (shown via :focus-within trick workaround) */
+    .form-success-msg {
+      display: none;
+      background: rgba(39,174,96,.1);
+      border: 1px solid rgba(39,174,96,.3);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      color: var(--success);
+      font-family: var(--font-nav);
+      font-size: .85rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    /* FAQ accordion (CSS-only) */
+    .faq-section { padding: var(--section-py) 1.5rem; background: var(--cream-light); }
+    .faq-grid    { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: .75rem; }
+    .faq-item    { background: var(--white); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); overflow: hidden; }
+
+    .faq-toggle  { display: none; }
+    .faq-question {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      font-family: var(--font-nav);
+      font-size: .9rem; font-weight: 700;
+      color: var(--navy);
+      transition: color .3s;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .faq-question:hover { color: var(--gold); }
+    .faq-arrow {
+      display: inline-block;
+      font-size: .85rem;
+      transition: transform .35s ease;
+      color: var(--gold);
+    }
+    .faq-toggle:checked ~ .faq-question .faq-arrow { transform: rotate(180deg); }
+    .faq-toggle:checked ~ .faq-question { color: var(--gold); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .45s ease, padding .35s ease;
+    }
+    .faq-answer-inner {
+      padding: 0 1.5rem;
+      font-size: .88rem;
+      color: var(--mid);
+      line-height: 1.75;
+    }
+    .faq-toggle:checked ~ .faq-answer { max-height: 260px; }
+    .faq-toggle:checked ~ .faq-answer .faq-answer-inner { padding-bottom: 1.25rem; }
+  </style>
+</head>
+<body>
+
+<input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+<header class="header">
+  <div class="header-inner">
+    <a href="/index.html" class="logo">
+      <div>
+        <div class="logo-text">Wanderlust<span>.</span></div>
+        <div class="logo-tagline">Luxury Travel Experiences</div>
+      </div>
+    </a>
+    <label for="menu-toggle" class="burger-label" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/index.html">Home</a>
+      <a href="/destinations.html">Destinations</a>
+      <a href="/tours.html">Tours</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html" class="btn btn-primary active">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════ PAGE HERO ═══════════════════════════ -->
+<div class="page-hero contact-hero">
+  <div class="page-hero-content">
+    <h1>Get in Touch</h1>
+    <p>Your next adventure is one conversation away</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ CONTACT SECTION ═══════════════════════════ -->
+<section class="section">
+  <div class="contact-layout container">
+
+    <!-- ── Left: Contact Info ── -->
+    <div class="contact-info">
+
+      <div style="margin-bottom:1rem;">
+        <span class="section-eyebrow">Reach Us</span>
+        <h2 class="section-title" style="font-size:clamp(1.6rem,2.5vw,2.2rem);">Let's Plan Your<br>Perfect Journey</h2>
+        <p style="font-size:.9rem;color:var(--mid);margin-top:.75rem;line-height:1.75;">Our travel consultants are available Monday–Saturday, 9 am – 7 pm (GMT). We typically respond within 2 hours.</p>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="ci-icon">&#128222;</div>
+        <div class="ci-text">
+          <h4>Phone</h4>
+          <p>+44 (0) 20 7946 0882</p>
+          <p style="font-size:.78rem;color:var(--light);margin-top:.25rem;">Mon–Sat · 9 am – 7 pm GMT</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="ci-icon">&#128140;</div>
+        <div class="ci-text">
+          <h4>Email</h4>
+          <p>hello@wanderlustjourneys.com</p>
+          <p style="font-size:.78rem;color:var(--light);margin-top:.25rem;">We reply within 2 business hours</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="ci-icon">&#128205;</div>
+        <div class="ci-text">
+          <h4>Office</h4>
+          <p>42 Mayfair Street, London W1K 4TH<br>United Kingdom</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="ci-icon">&#128336;</div>
+        <div class="ci-text">
+          <h4>Opening Hours</h4>
+          <p>Mon – Fri: 9:00 am – 7:00 pm<br>Saturday: 10:00 am – 5:00 pm<br>Sunday: Closed</p>
+        </div>
+      </div>
+
+    </div><!-- /.contact-info -->
+
+    <!-- ── Right: Booking Form ── -->
+    <div class="contact-form-box">
+      <h3>Request a Quote</h3>
+      <p>Fill in your travel details below and one of our specialists will craft a personalised itinerary for you.</p>
+
+      
+      <form action="#" method="get">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name <span class="req">*</span></label>
+            <input
+              type="text"
+              id="fname"
+              name="first_name"
+              class="form-control"
+              placeholder="Jane"
+              required
+              minlength="2"
+              pattern="[A-Za-z\s\-]{2,}"
+            />
+            <span class="v-msg">Please enter a valid first name (min 2 characters)</span>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name <span class="req">*</span></label>
+            <input
+              type="text"
+              id="lname"
+              name="last_name"
+              class="form-control"
+              placeholder="Smith"
+              required
+              minlength="2"
+              pattern="[A-Za-z\s\-]{2,}"
+            />
+            <span class="v-msg">Please enter a valid last name (min 2 characters)</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="jane@example.com"
+              required
+            />
+            <span class="v-msg">Please enter a valid email address</span>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="form-control"
+              placeholder="+44 7700 900000"
+              pattern="[\+\d\s\(\)\-]{7,20}"
+            />
+            <span class="v-msg">Please enter a valid phone number</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="destination">Destination <span class="req">*</span></label>
+            <select id="destination" name="destination" class="form-control" required>
+              <option value="" disabled selected>Select a destination…</option>
+              <optgroup label="Europe">
+                <option value="paris">Paris, France</option>
+                <option value="santorini">Santorini, Greece</option>
+                <option value="switzerland">Swiss Alps</option>
+                <option value="iceland">Iceland</option>
+              </optgroup>
+              <optgroup label="Asia">
+                <option value="bali">Bali, Indonesia</option>
+                <option value="tokyo">Tokyo, Japan</option>
+                <option value="thailand">Thailand</option>
+                <option value="maldives">Maldives</option>
+              </optgroup>
+              <optgroup label="Americas &amp; Africa">
+                <option value="peru">Peru (Machu Picchu)</option>
+                <option value="morocco">Morocco</option>
+              </optgroup>
+              <option value="other">Other / Bespoke</option>
+            </select>
+            <span class="v-msg">Please select a destination</span>
+          </div>
+          <div class="form-group">
+            <label for="travellers">Number of Travellers <span class="req">*</span></label>
+            <select id="travellers" name="travellers" class="form-control" required>
+              <option value="" disabled selected>Select…</option>
+              <option value="1">1 — Solo</option>
+              <option value="2">2 — Couple</option>
+              <option value="3-4">3–4 — Small Group</option>
+              <option value="5-8">5–8 — Group</option>
+              <option value="9+">9+ — Large Group</option>
+            </select>
+            <span class="v-msg">Please select the number of travellers</span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="depart">Departure Date <span class="req">*</span></label>
+            <input
+              type="date"
+              id="depart"
+              name="departure"
+              class="form-control"
+              required
+              min="2025-01-01"
+            />
+            <span class="v-msg">Please select a departure date</span>
+          </div>
+          <div class="form-group">
+            <label for="nights">Duration (nights) <span class="req">*</span></label>
+            <input
+              type="number"
+              id="nights"
+              name="nights"
+              class="form-control"
+              placeholder="7"
+              required
+              min="3"
+              max="90"
+            />
+            <span class="v-msg">Please enter 3–90 nights</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="budget">Budget per Person</label>
+          <select id="budget" name="budget" class="form-control">
+            <option value="" disabled selected>Select a budget range…</option>
+            <option value="1k-2k">$1,000 – $2,000</option>
+            <option value="2k-4k">$2,000 – $4,000</option>
+            <option value="4k-7k">$4,000 – $7,000</option>
+            <option value="7k+">$7,000+</option>
+            <option value="flexible">Flexible / Tell me what fits</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Tell Us About Your Dream Trip</label>
+          <textarea
+            id="message"
+            name="message"
+            class="form-control"
+            placeholder="Special occasions, must-see experiences, dietary requirements, accessibility needs — anything we should know…"
+            rows="4"
+          ></textarea>
+        </div>
+
+        <div class="form-group" style="display:flex;align-items:flex-start;gap:.75rem;">
+          <input
+            type="checkbox"
+            id="consent"
+            name="consent"
+            required
+            style="margin-top:.25rem;width:auto;flex-shrink:0;accent-color:var(--gold);"
+          />
+          <label for="consent" style="text-transform:none;letter-spacing:0;font-weight:400;font-size:.83rem;color:var(--mid);cursor:pointer;">
+            I agree to Wanderlust Journeys contacting me about my enquiry. <span class="req">*</span>
+            I understand my data will be handled in accordance with the <a href="#" style="color:var(--gold);text-decoration:underline;">Privacy Policy</a>.
+          </label>
+        </div>
+
+        <div class="form-footer">
+          <p class="form-note">&#128274; Your data is safe with us — we never share it.</p>
+          <button type="submit" class="btn btn-primary">Send My Enquiry &#10148;</button>
+        </div>
+
+      </form>
+    </div><!-- /.contact-form-box -->
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════ MAP PLACEHOLDER ═══════════════════════════ -->
+<div class="map-section">
+  <div class="map-placeholder">
+    <span class="map-icon">&#128205;</span>
+    <span>42 Mayfair Street, London W1K 4TH</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ FAQ  ═══════════════════════════ -->
+<section class="faq-section">
+  <div class="container text-center" style="margin-bottom:2.5rem;">
+    <span class="section-eyebrow">Common Questions</span>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+  </div>
+
+  <div class="faq-grid">
+
+    <div class="faq-item">
+      <input type="checkbox" id="faq1" class="faq-toggle">
+      <label for="faq1" class="faq-question">
+        How far in advance should I book? <span class="faq-arrow">&#9660;</span>
+      </label>
+      <div class="faq-answer">
+        <p class="faq-answer-inner">We recommend booking at least 3–6 months before your intended travel date, especially for peak season travel (June–August and December). Popular destinations like the Maldives and Japan can sell out up to 12 months in advance. However, we can often accommodate last-minute enquiries — just ask!</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <input type="checkbox" id="faq2" class="faq-toggle">
+      <label for="faq2" class="faq-question">
+        Can you arrange completely bespoke trips? <span class="faq-arrow">&#9660;</span>
+      </label>
+      <div class="faq-answer">
+        <p class="faq-answer-inner">Absolutely — it's our speciality. While we offer pre-designed packages as a starting point, every itinerary is ultimately tailored to you. Tell us your dream and our consultants will build a trip around your exact preferences, dates, budget, and interests. No template, no compromise.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <input type="checkbox" id="faq3" class="faq-toggle">
+      <label for="faq3" class="faq-question">
+        What's included in your packages? <span class="faq-arrow">&#9660;</span>
+      </label>
+      <div class="faq-answer">
+        <p class="faq-answer-inner">Inclusions vary by package tier. All packages include accommodation and airport transfers; flights are included in most packages but can be excluded if you prefer to book independently. Our Premium and Luxury tiers include 24/7 concierge support, guided excursions, and travel insurance. See our full comparison table on the Tours page.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <input type="checkbox" id="faq4" class="faq-toggle">
+      <label for="faq4" class="faq-question">
+        What is your cancellation policy? <span class="faq-arrow">&#9660;</span>
+      </label>
+      <div class="faq-answer">
+        <p class="faq-answer-inner">We offer free cancellation up to 60 days before departure. Between 60–30 days, a 25% fee applies; 30–14 days, 50%; fewer than 14 days, 100%. We strongly recommend adding our comprehensive travel insurance (included in Premium &amp; Luxury tiers) which covers medical emergencies, trip interruption, and more.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <input type="checkbox" id="faq5" class="faq-toggle">
+      <label for="faq5" class="faq-question">
+        Do you handle visa arrangements? <span class="faq-arrow">&#9660;</span>
+      </label>
+      <div class="faq-answer">
+        <p class="faq-answer-inner">We provide comprehensive visa guidance and documentation checklists for every destination we serve. While we cannot apply on your behalf, our consultants will walk you through exactly what's needed, where to apply, and how long it takes. For certain destinations we work with specialist visa agencies and can facilitate the process on your behalf for a small fee.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer class="footer">
+  <div class="footer-grid container">
+    <div class="footer-brand">
+      <div class="logo-text" style="margin-bottom:.3rem;">Wanderlust<span>.</span></div>
+      <p>We craft extraordinary journeys for curious souls. From intimate escapes to grand expeditions — your perfect trip starts here.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram">&#128247;</a>
+        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+        <a href="#" class="social-btn" aria-label="Twitter">&#120143;</a>
+        <a href="#" class="social-btn" aria-label="Pinterest">&#9677;</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="/destinations.html">All Destinations</a></li>
+        <li><a href="/tours.html">Tour Packages</a></li>
+        <li><a href="/tours.html">Honeymoon</a></li>
+        <li><a href="/tours.html">Adventure Tours</a></li>
+        <li><a href="/tours.html">Family Holidays</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/about.html">Our Team</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Support</h5>
+      <ul>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Travel Insurance</a></li>
+        <li><a href="#">Visa Information</a></li>
+        <li><a href="#">Cancellation Policy</a></li>
+        <li><a href="/contact.html">Help Centre</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>&copy; 2026 Wanderlust Journeys. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Cookie Settings</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

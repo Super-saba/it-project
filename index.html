@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wanderlust Journeys — Luxury Travel Experiences</title>
+  <meta name="description" content="Discover extraordinary destinations with Wanderlust Journeys. Bespoke luxury travel experiences crafted for discerning explorers." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<!-- CAROUSEL RADIO CONTROLS -->
+<input type="radio" id="s1" name="hero" class="cr" checked>
+<input type="radio" id="s2" name="hero" class="cr">
+<input type="radio" id="s3" name="hero" class="cr">
+
+<!-- BURGER MENU CHECKBOX -->
+<input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+
+    <a href="/index.html" class="logo">
+      <div>
+        <div class="logo-text">Wanderlust<span>.</span></div>
+        <div class="logo-tagline">Luxury Travel Experiences</div>
+      </div>
+    </a>
+
+    <label for="menu-toggle" class="burger-label" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/index.html" class="active">Home</a>
+      <a href="/destinations.html">Destinations</a>
+      <a href="/tours.html">Tours</a>
+      <a href="/about.html">About</a>
+      <a href="/signup.html">Sign Up</a>
+      <a href="/contact.html" class="btn btn-primary">Book Now</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- HERO CAROUSEL -->
+<section class="hero-carousel" aria-label="Featured destinations">
+  <div class="hero-slides">
+
+    <!-- Slide 1 — Santorini -->
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1920&q=80')">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Featured Destination</p>
+        <h1>Discover the Magic of Santorini</h1>
+        <p>Iconic white-washed villages, crystal-clear waters and breathtaking sunsets — Greece's jewel awaits you.</p>
+        <div class="hero-btns">
+          <a href="/destinations.html" class="btn btn-primary">Explore Destinations</a>
+          <a href="/tours.html"        class="btn btn-outline">View Tours</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 — Maldives -->
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=1920&q=80')">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Island Paradise</p>
+        <h1>Escape to the Maldives</h1>
+        <p>Overwater bungalows, turquoise lagoons and pristine coral reefs — the ultimate tropical retreat.</p>
+        <div class="hero-btns">
+          <a href="/destinations.html" class="btn btn-primary">Explore Destinations</a>
+          <a href="/tours.html"        class="btn btn-outline">View Tours</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 — Japan -->
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1920&q=80')">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Cultural Journey</p>
+        <h1>Japan — Ancient Spirit, Modern Wonder</h1>
+        <p>Cherry blossoms, ancient temples, and bullet trains — experience the world's most captivating contrasts.</p>
+        <div class="hero-btns">
+          <a href="/destinations.html" class="btn btn-primary">Explore Destinations</a>
+          <a href="/tours.html"        class="btn btn-outline">View Tours</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.hero-slides -->
+
+  <!-- Dot navigation -->
+  <div class="carousel-dots">
+    <label for="s1" aria-label="Slide 1"></label>
+    <label for="s2" aria-label="Slide 2"></label>
+    <label for="s3" aria-label="Slide 3"></label>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════ FEATURES STRIP ═══════════════════════════ -->
+<section class="features-strip">
+  <div class="features-grid">
+
+    <div class="feature-item">
+      <div class="feature-icon">&#9992;</div>
+      <div class="feature-text">
+        <h4>Handpicked Flights</h4>
+        <p>Premium airlines &amp; private charter</p>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">&#127968;</div>
+      <div class="feature-text">
+        <h4>Luxury Stays</h4>
+        <p>5-star hotels &amp; boutique resorts</p>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">&#127758;</div>
+      <div class="feature-text">
+        <h4>Expert Guides</h4>
+        <p>Local specialists in 80+ countries</p>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">&#128205;</div>
+      <div class="feature-text">
+        <h4>24 / 7 Support</h4>
+        <p>We're with you every step</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURED DESTINATIONS -->
+<section class="section section-alt">
+  <div class="container text-center" style="margin-bottom:3rem;">
+    <span class="section-eyebrow">Where to Next?</span>
+    <h2 class="section-title">Featured Destinations</h2>
+    <p class="section-desc">From sun-drenched coastlines to ancient mountain kingdoms — explore our most sought-after escapes.</p>
+  </div>
+
+  <div class="dest-grid container">
+
+    <!-- Wide card -->
+    <div class="dest-card dest-card-wide anim-fade-up">
+      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1200&q=80" alt="Paris, France" loading="lazy" />
+      <div class="dest-card-overlay">
+        <span class="dest-region">France</span>
+        <h3 class="dest-name">Paris</h3>
+        <div class="dest-meta">
+          <span>&#128336; 7 nights from</span>
+        </div>
+        <span class="dest-tag">From $1,299</span>
+      </div>
+    </div>
+
+    <!-- Small card -->
+    <div class="dest-card anim-fade-up anim-d1">
+      <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&q=80" alt="Bali, Indonesia" loading="lazy" />
+      <div class="dest-card-overlay">
+        <span class="dest-region">Indonesia</span>
+        <h3 class="dest-name">Bali</h3>
+        <div class="dest-meta"><span>&#128336; 10 nights from</span></div>
+        <span class="dest-tag">From $1,899</span>
+      </div>
+    </div>
+
+    <!-- Small card -->
+    <div class="dest-card anim-fade-up anim-d2">
+      <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800&q=80" alt="Tokyo, Japan" loading="lazy" />
+      <div class="dest-card-overlay">
+        <span class="dest-region">Japan</span>
+        <h3 class="dest-name">Tokyo</h3>
+        <div class="dest-meta"><span>&#128336; 12 nights from</span></div>
+        <span class="dest-tag">From $2,499</span>
+      </div>
+    </div>
+
+    <!-- Small card -->
+    <div class="dest-card anim-fade-up anim-d1">
+      <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=800&q=80" alt="Maldives" loading="lazy" />
+      <div class="dest-card-overlay">
+        <span class="dest-region">Maldives</span>
+        <h3 class="dest-name">Atoll Islands</h3>
+        <div class="dest-meta"><span>&#128336; 7 nights from</span></div>
+        <span class="dest-tag">From $3,299</span>
+      </div>
+    </div>
+
+    <!-- Small card -->
+    <div class="dest-card anim-fade-up anim-d2">
+      <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=800&q=80" alt="Santorini, Greece" loading="lazy" />
+      <div class="dest-card-overlay">
+        <span class="dest-region">Greece</span>
+        <h3 class="dest-name">Santorini</h3>
+        <div class="dest-meta"><span>&#128336; 7 nights from</span></div>
+        <span class="dest-tag">From $2,199</span>
+      </div>
+    </div>
+
+    <!-- Small card -->
+    <div class="dest-card anim-fade-up anim-d3">
+      <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=800&q=80" alt="Machu Picchu, Peru" loading="lazy" />
+      <div class="dest-card-overlay">
+        <span class="dest-region">Peru</span>
+        <h3 class="dest-name">Machu Picchu</h3>
+        <div class="dest-meta"><span>&#128336; 9 nights from</span></div>
+        <span class="dest-tag">From $2,799</span>
+      </div>
+    </div>
+
+  </div><!-- /.dest-grid -->
+
+  <div class="text-center" style="margin-top:3rem;">
+    <a href="/destinations.html" class="btn btn-dark">View All Destinations</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section-dark">
+  <div class="container text-center" style="margin-bottom:3rem;">
+    <span class="section-eyebrow">What Travellers Say</span>
+    <h2 class="section-title section-title--white">Stories from the Road</h2>
+    <p class="section-desc section-desc--white">Real experiences from real travellers who trusted us with their greatest adventures.</p>
+  </div>
+
+  <div class="testi-grid container">
+
+    <div class="testi-card">
+      <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testi-text">"Wanderlust turned our honeymoon into something we never could have imagined. Every detail was perfect — the villa, the private dinners, the sunrise excursions."</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Sofia M." loading="lazy" />
+        <div>
+          <div class="testi-name">Sofia M.</div>
+          <div class="testi-trip">Maldives — 14 nights</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testi-text">"From the moment I landed in Tokyo to the farewell dinner in Kyoto, every experience was thoughtfully curated. I felt like a true insider, not just a tourist."</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1552058544-f2b08422138a?w=100&q=80" alt="James T." loading="lazy" />
+        <div>
+          <div class="testi-name">James T.</div>
+          <div class="testi-trip">Japan Discovery — 12 nights</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card">
+      <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testi-text">"I've travelled with many agencies, but Wanderlust stands apart. The attention to detail, the personal touches, the seamless logistics — simply world-class."</p>
+      <div class="testi-author">
+        <img class="testi-avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80" alt="Amara K." loading="lazy" />
+        <div>
+          <div class="testi-name">Amara K.</div>
+          <div class="testi-trip">Europe Grand Tour — 18 nights</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<section class="stats-strip">
+  <div class="stats-grid container">
+    <div><span class="stat-num">25K+</span><span class="stat-label">Happy Travellers</span></div>
+    <div><span class="stat-num">80+</span><span class="stat-label">Destinations</span></div>
+    <div><span class="stat-num">15</span><span class="stat-label">Years of Experience</span></div>
+    <div><span class="stat-num">98%</span><span class="stat-label">Satisfaction Rate</span></div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container">
+    <span class="section-eyebrow" style="display:block;text-align:center;margin-bottom:.4rem;">Stay Inspired</span>
+    <h2>Get Travel Inspiration</h2>
+    <p>Join 20,000+ subscribers for destination guides, exclusive deals, and travel tips delivered to your inbox.</p>
+    <form class="nl-form" action="#" method="get" novalidate>
+      <input type="email" name="email" placeholder="Your email address" required
+             pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" />
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid container">
+
+    <div class="footer-brand">
+      <div class="logo-text" style="margin-bottom:.3rem;">Wanderlust<span>.</span></div>
+      <p>We craft extraordinary journeys for curious souls. From intimate escapes to grand expeditions — your perfect trip starts here.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram">&#128247;</a>
+        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+        <a href="#" class="social-btn" aria-label="Twitter">&#120143;</a>
+        <a href="#" class="social-btn" aria-label="Pinterest">&#9677;</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="/destinations.html">All Destinations</a></li>
+        <li><a href="/tours.html">Tour Packages</a></li>
+        <li><a href="/tours.html">Honeymoon</a></li>
+        <li><a href="/tours.html">Adventure Tours</a></li>
+        <li><a href="/tours.html">Family Holidays</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/about.html">Our Team</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Support</h5>
+      <ul>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Travel Insurance</a></li>
+        <li><a href="#">Visa Information</a></li>
+        <li><a href="#">Cancellation Policy</a></li>
+        <li><a href="/contact.html">Help Centre</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="footer-bottom container">
+    <p>&copy; 2026 Wanderlust Journeys. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Cookie Settings</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Wanderlust Journeys</title>
+  <meta name="description" content="15 years crafting extraordinary journeys. Meet the passionate team behind Wanderlust Journeys." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .about-hero { background-image: url('https://images.unsplash.com/photo-1488085061387-422e29b40080?w=1920&q=80'); }
+
+    /* Values section */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+    .value-card {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border-radius: var(--radius-xl);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border-bottom: 3px solid transparent;
+    }
+    .value-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow-lg);
+      border-bottom-color: var(--gold);
+    }
+    .value-icon {
+      font-size: 2.25rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+    .value-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin-bottom: .6rem;
+    }
+    .value-card p {
+      font-size: .88rem;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* Awards section */
+    .awards-section {
+      background: var(--navy);
+      padding: 4rem 1.5rem;
+    }
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: var(--container);
+      margin: 0 auto;
+      text-align: center;
+    }
+    .award-item { color: var(--white); }
+    .award-icon { font-size: 2rem; color: var(--gold); margin-bottom: .75rem; display: block; }
+    .award-name {
+      font-family: var(--font-nav);
+      font-size: .78rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      margin-top: .25rem;
+    }
+    .award-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: .2rem;
+    }
+
+    @media (max-width: 1024px) {
+      .values-grid  { grid-template-columns: repeat(2, 1fr); }
+      .awards-grid  { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .values-grid  { grid-template-columns: 1fr; }
+      .awards-grid  { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+<header class="header">
+  <div class="header-inner">
+    <a href="/index.html" class="logo">
+      <div>
+        <div class="logo-text">Wanderlust<span>.</span></div>
+        <div class="logo-tagline">Luxury Travel Experiences</div>
+      </div>
+    </a>
+    <label for="menu-toggle" class="burger-label" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/index.html">Home</a>
+      <a href="/destinations.html">Destinations</a>
+      <a href="/tours.html">Tours</a>
+      <a href="/about.html" class="active">About</a>
+      <a href="/signup.html">Sign Up</a>
+      <a href="/contact.html" class="btn btn-primary">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════ PAGE HERO ═══════════════════════════ -->
+<div class="page-hero about-hero">
+  <div class="page-hero-content">
+    <h1>Our Story</h1>
+    <p>Fifteen years of extraordinary journeys — and counting</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ ABOUT STORY ═══════════════════════════ -->
+<section class="section">
+  <div class="about-layout container">
+
+    <div class="about-img-wrap">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80" alt="Beautiful alpine landscape" loading="lazy" />
+      <div class="about-badge">
+        <div class="bn">15</div>
+        <div class="bl">Years of<br>Excellence</div>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <span class="section-eyebrow">Who We Are</span>
+      <h2 class="section-title">Born from a Passion for Exploration</h2>
+      <p>Wanderlust Journeys was founded in 2011 by a group of seasoned travellers who believed that the best way to experience a destination was with an expert by your side. What began as a small boutique agency in London has grown into one of the world's most trusted names in luxury travel.</p>
+      <p>We don't just book trips — we craft transformative experiences. Every itinerary is built from scratch, drawing on 15 years of on-the-ground knowledge and a network of trusted local partners across 80+ countries.</p>
+      <p>From a couple's first adventure abroad to a solo expedition to the ends of the Earth, we believe every journey should be extraordinary. That belief is at the heart of everything we do.</p>
+      <div class="about-bullets">
+        <div class="about-bullet">Privately owned — never compromising on quality for profit</div>
+        <div class="about-bullet">Certified sustainable travel operator since 2018</div>
+        <div class="about-bullet">Winner of 4 consecutive Travel Industry Excellence Awards</div>
+        <div class="about-bullet">Carbon-offset on all package bookings, included automatically</div>
+      </div>
+      <div style="margin-top:2rem;">
+        <a href="/contact.html" class="btn btn-dark">Talk to Our Team</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════ STATS ═══════════════════════════ -->
+<section class="stats-strip">
+  <div class="stats-grid container">
+    <div><span class="stat-num">25K+</span><span class="stat-label">Happy Travellers</span></div>
+    <div><span class="stat-num">80+</span><span class="stat-label">Countries</span></div>
+    <div><span class="stat-num">15</span><span class="stat-label">Years in Business</span></div>
+    <div><span class="stat-num">98%</span><span class="stat-label">Would Recommend Us</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ VALUES ═══════════════════════════ -->
+<section class="section section-alt">
+  <div class="container text-center" style="margin-bottom:3rem;">
+    <span class="section-eyebrow">What We Stand For</span>
+    <h2 class="section-title">Our Values</h2>
+    <p class="section-desc">Three principles that guide every decision we make, every destination we recommend, every trip we design.</p>
+  </div>
+  <div class="values-grid container">
+
+    <div class="value-card">
+      <span class="value-icon">&#128161;</span>
+      <h3>Authentic Discovery</h3>
+      <p>We believe travel should change you. We go beyond tourist trails to find experiences that reveal the true soul of a place — its people, its food, its stories.</p>
+    </div>
+
+    <div class="value-card">
+      <span class="value-icon">&#127774;</span>
+      <h3>Responsible Travel</h3>
+      <p>We partner only with local operators who share our commitment to conservation and community. Every trip gives back to the destinations you visit.</p>
+    </div>
+
+    <div class="value-card">
+      <span class="value-icon">&#10024;</span>
+      <h3>Flawless Execution</h3>
+      <p>The best experiences are the ones where nothing goes wrong. Our obsessive attention to detail means you travel with complete peace of mind.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════ TEAM ═══════════════════════════ -->
+<section class="section">
+  <div class="container text-center" style="margin-bottom:3rem;">
+    <span class="section-eyebrow">The Faces Behind the Journey</span>
+    <h2 class="section-title">Meet Our Team</h2>
+    <p class="section-desc">Our team of experts has collectively visited over 200 countries. Their passion for travel is personal — and it shows.</p>
+  </div>
+
+  <div class="team-grid container">
+
+    <div class="team-card">
+      <div class="team-img-wrap">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Marcus Holt" loading="lazy" />
+      </div>
+      <div class="team-name">Marcus Holt</div>
+      <div class="team-role">Founder &amp; CEO</div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-img-wrap">
+        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80" alt="Elise Morrow" loading="lazy" />
+      </div>
+      <div class="team-name">Elise Morrow</div>
+      <div class="team-role">Head of Design Journeys</div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-img-wrap">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="Raj Patel" loading="lazy" />
+      </div>
+      <div class="team-name">Raj Patel</div>
+      <div class="team-role">Senior Asia Specialist</div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-img-wrap">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt="Camille Dupont" loading="lazy" />
+      </div>
+      <div class="team-name">Camille Dupont</div>
+      <div class="team-role">Europe &amp; Africa Expert</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════ AWARDS ═══════════════════════════ -->
+<section class="awards-section">
+  <div class="container text-center" style="margin-bottom:3rem;">
+    <span class="section-eyebrow">Recognition</span>
+    <h2 class="section-title section-title--white">Awards &amp; Accreditations</h2>
+  </div>
+  <div class="awards-grid container">
+    <div class="award-item">
+      <span class="award-icon">&#127942;</span>
+      <div class="award-title">Travel Agency of the Year</div>
+      <div class="award-name">Luxury Travel Awards 2025</div>
+    </div>
+    <div class="award-item">
+      <span class="award-icon">&#127759;</span>
+      <div class="award-title">Best Sustainable Operator</div>
+      <div class="award-name">Green Travel Awards 2024</div>
+    </div>
+    <div class="award-item">
+      <span class="award-icon">&#11088;</span>
+      <div class="award-title">5-Star Excellence</div>
+      <div class="award-name">Condé Nast Traveller 2025</div>
+    </div>
+    <div class="award-item">
+      <span class="award-icon">&#127919;</span>
+      <div class="award-title">Top-Rated on TrustPilot</div>
+      <div class="award-name">4.9 / 5 · 3,200+ reviews</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer class="footer">
+  <div class="footer-grid container">
+    <div class="footer-brand">
+      <div class="logo-text" style="margin-bottom:.3rem;">Wanderlust<span>.</span></div>
+      <p>We craft extraordinary journeys for curious souls. From intimate escapes to grand expeditions — your perfect trip starts here.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram">&#128247;</a>
+        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+        <a href="#" class="social-btn" aria-label="Twitter">&#120143;</a>
+        <a href="#" class="social-btn" aria-label="Pinterest">&#9677;</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="/destinations.html">All Destinations</a></li>
+        <li><a href="/tours.html">Tour Packages</a></li>
+        <li><a href="/tours.html">Honeymoon</a></li>
+        <li><a href="/tours.html">Adventure Tours</a></li>
+        <li><a href="/tours.html">Family Holidays</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/about.html">Our Team</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Support</h5>
+      <ul>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Travel Insurance</a></li>
+        <li><a href="#">Visa Information</a></li>
+        <li><a href="#">Cancellation Policy</a></li>
+        <li><a href="/contact.html">Help Centre</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    <p>&copy; 2026 Wanderlust Journeys. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Cookie Settings</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
